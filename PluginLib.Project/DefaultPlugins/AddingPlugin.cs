@@ -1,4 +1,6 @@
-﻿namespace ds.test.impl;
+﻿using System.Reflection;
+
+namespace ds.test.impl;
 
 /// <summary>
 /// Плагин для сложения.
@@ -10,7 +12,7 @@ internal class AddingPlugin : Plugin
     public override string Version => "1.0";
     
 #pragma warning disable CA1416
-    public override Image Image => Image.FromFile(Path.Combine("Images", $"{PluginName}.jpg"));
+    public override Image Image => Image.FromFile(Path.Combine($"{AppDomain.CurrentDomain.BaseDirectory}", "Images", $"{PluginName}.png"));
 #pragma warning restore CA1416
     
     public override string Description => "Сложение двух чисел";

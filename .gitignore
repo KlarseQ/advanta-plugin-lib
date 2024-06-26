@@ -1,3 +1,5 @@
 /PluginLib.Project/bin/
 /PluginLib.Project/obj/
 /.idea
+/PluginLib.Tests/bin/
+/PluginLib.Tests/obj/
