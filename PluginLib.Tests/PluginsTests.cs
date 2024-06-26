@@ -1,4 +1,5 @@
 using ds.test.impl;
+using System.Drawing;
 
 namespace PluginLib.Tests;
 
@@ -102,5 +103,24 @@ public class PluginsTests
         var actualResult = subtractPlugin.Run(input1, input2);
 
         Assert.Equal(expectedResult, actualResult);
+    }
+    
+    [Fact]
+    public void RegisterPlugin_ShouldAddPlugin()
+    {
+        var plugin = new CustomPlugin();
+
+        Plugins.RegisterPlugin(plugin);
+
+        Assert.Contains(plugin.PluginName, Plugins.GetPluginNames);
+    }
+
+    private class CustomPlugin : IPlugin
+    {
+        public string PluginName => nameof(CustomPlugin);
+        public string Version => "1.1";
+        public Image Image => null!;
+        public string Description => "Плагин для тестирования";
+        public int Run(int input1, int input2) => (input1 + input2) * 2;
     }
 }
