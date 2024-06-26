@@ -18,7 +18,7 @@ public interface IPlugin
     /// <summary>
     /// Изображение.
     /// </summary>
-    public System.Drawing.Image Image { get; }
+    public Image Image { get; }
     
     /// <summary>
     /// Описание.
